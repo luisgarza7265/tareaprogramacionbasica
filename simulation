@@ -1,0 +1,13 @@
+read = open("shell.in")
+
+n = int(read.readline())
+
+shell_at_pos = [i for i in range(3)]
+counter = [0 for _ in range(3)]
+
+for _ in range(n):
+	a, b, g = [int(i) - 1 for i in read.readline().split()]
+	shell_at_pos[a], shell_at_pos[b] = shell_at_pos[b], shell_at_pos[a]
+	counter[shell_at_pos[g]] += 1
+
+print(max(counter), file=open("shell.out", "w"))
