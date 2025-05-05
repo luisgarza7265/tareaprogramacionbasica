@@ -1,0 +1,16 @@
+n = int(input())
+pesos = list(map(int, input().split()))
+
+respuesta = float("inf")
+for mascara in range(1 << n):
+	suma1 = 0
+	suma2 = 0
+	for i in range(n):
+		if mascara & (1 << i):
+			suma1 += pesos[i]
+		else:
+			suma2 += pesos[i]
+
+	respuesta = min(respuesta, abs(suma1 - suma2))
+
+print(respuesta)
