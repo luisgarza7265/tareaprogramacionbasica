@@ -1,0 +1,13 @@
+n = int(input())
+coordenadas_x = list(map(int, input().split()))
+coordenadas_y = list(map(int, input().split()))
+
+distancia_maxima = 0
+for i in range(n):
+	for j in range(i + 1, n):
+		diferencia_x = coordenadas_x[i] - coordenadas_x[j]
+		diferencia_y = coordenadas_y[i] - coordenadas_y[j]
+		cuadrado = diferencia_x * diferencia_x + diferencia_y * diferencia_y
+		distancia_maxima = max(distancia_maxima, math.sqrt(cuadrado))
+
+print(int(distancia_maxima**2))
